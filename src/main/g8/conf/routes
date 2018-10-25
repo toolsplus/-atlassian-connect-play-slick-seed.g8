@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET        /                              controllers.AppDescriptorController.redirectToDescriptor
+GET        /atlassian-connect.json        controllers.AppDescriptorController.descriptor
+
+GET        /app/hello                     controllers.AppIframeController.iframe(title = "Hello app", entry = "main")
+
+# Assets
+GET        /assets/*file                  controllers.Assets.at(file)
+
+# atlassian-connect-play-scala
+->         /                              atlassian.connect.Routes

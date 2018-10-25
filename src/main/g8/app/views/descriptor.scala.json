@@ -1,0 +1,40 @@
+@import io.toolsplus.atlassian.connect.play.api.models.Predefined.AppKey
+@(addonKey: AppKey, addonName: String, addonBaseUrl: String, enableLicensing: Boolean)
+{
+  "key": "@addonKey",
+  "name": "@addonName",
+  "description": "My hello app",
+  "apiVersion": 1,
+  "enableLicensing": @enableLicensing,
+  "vendor": {
+    "name": "Hello Apps",
+    "url": "https://hello.apps"
+  },
+  "baseUrl": "@addonBaseUrl",
+  "links": {
+    "documentation": "https://docs.hello.apps"
+  },
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "scopes": [
+    "READ"
+  ],
+  "modules": {
+    "webPanels": [
+      {
+        "key": "hello-issue-panel",
+        "url": "/app/hello",
+        "location": "atl.jira.view.issue.right.context",
+        "weight": 100,
+        "name": {
+          "value": "Hello App"
+        }
+      }
+    ]
+  }
+}
